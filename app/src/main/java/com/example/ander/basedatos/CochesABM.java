@@ -33,7 +33,6 @@ public class CochesABM extends AppCompatActivity {
         Bundle bundle= getIntent().getExtras();
         String opcion= bundle.getString("opcion");
         Toast notificacion = Toast.makeText(this, opcion, Toast.LENGTH_SHORT);
-        assert opcion != null;
         tvTitulo.setText(opcion.toUpperCase());
 
         if(opcion.equals("altas")){
