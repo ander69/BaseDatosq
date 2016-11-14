@@ -11,7 +11,7 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-//prueba 2
+//prueba 213
 
 public class CochesABM extends AppCompatActivity {
     private Button btBuscar;
@@ -33,6 +33,7 @@ public class CochesABM extends AppCompatActivity {
         Bundle bundle= getIntent().getExtras();
         String opcion= bundle.getString("opcion");
         Toast notificacion = Toast.makeText(this, opcion, Toast.LENGTH_SHORT);
+        assert opcion != null;
         tvTitulo.setText(opcion.toUpperCase());
 
         if(opcion.equals("altas")){
