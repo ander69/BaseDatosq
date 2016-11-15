@@ -42,7 +42,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Buscar"
-            android:id="@+id/btBuscar" />
+            android:id="@+id/btBuscar"
+            android:onClick="buscar" />
     </LinearLayout>
 
     <LinearLayout
