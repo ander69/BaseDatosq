@@ -15,8 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Consulta extends AppCompatActivity {
-    private TextView tvTitulo,tvOpcion;
-    private EditText etMatricula;
+    private TextView tvTitulo;
     private ListView lvLista;
     private  String opcion;
 
@@ -25,14 +24,11 @@ public class Consulta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_consulta_p);
         tvTitulo=(TextView)findViewById(R.id.tvTitulo);
-        tvOpcion=(TextView)findViewById(R.id.tvOpcion);
-        etMatricula=(EditText)findViewById(R.id.etMatricula);
         lvLista = (ListView) findViewById(R.id.lvLista);
         Bundle bundle = getIntent().getExtras();
         opcion=bundle.getString("opcion");
         tvTitulo.setText("CONSULTA "+opcion.toUpperCase());
         if (opcion.equals("propietarios")){
-            tvOpcion.setText("DNI:");
             AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "seguros", null, 1);
             SQLiteDatabase db = admin.getWritableDatabase();
             List<String> arrayPropietarios = new ArrayList<>();
@@ -57,7 +53,6 @@ public class Consulta extends AppCompatActivity {
             lvLista.setAdapter(adaptador);
         }
         if (opcion.equals("coches")){
-            tvOpcion.setText("Matricula:");
             AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this, "seguros", null, 1);
             SQLiteDatabase db = admin.getWritableDatabase();
             List<String> arrayCoches = new ArrayList<>();
@@ -81,26 +76,6 @@ public class Consulta extends AppCompatActivity {
 
             ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayCoches);
             lvLista.setAdapter(adaptador);
-        }
-
-    }
-
-    public void buscar(View v){
-
-        if (opcion.equals("coches")){
-            Toast.makeText(this,"aqui",Toast.LENGTH_SHORT).show();
-            AdminSQLiteOpenHelper admin = new AdminSQLiteOpenHelper(this,"seguros", null, 1);
-            SQLiteDatabase db = admin.getWritableDatabase();
-            String matricula = etMatricula.getText().toString();
-            Cursor fila = db.rawQuery("select marca,potencia,dni from coches where matricula='" + matricula + "'",null);
-            if (fila.moveToFirst()) {
-                for (int i = 0; i < lvLista.getCount(); i++) {
-                    if (lvLista.getItemAtPosition(i).toString().equals(matricula)) {
-                        lvLista.setSelection(i);
-                        break;
-                    }
-                }
-            }
         }
 
     }
