@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
-//fin
 public class Consulta extends AppCompatActivity {
     private TextView tvTitulo;
     private ListView lvLista;
