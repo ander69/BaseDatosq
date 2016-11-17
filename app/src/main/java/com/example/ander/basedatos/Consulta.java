@@ -40,14 +40,12 @@ public class Consulta extends AppCompatActivity {
                     }
                     String texto = "Nombre: "+fila.getString(0)+", edad: "+fila.getString(1)+", telefono: "+fila.getString(2)+", DNI: "+fila.getString(3);
                     arrayPropietarios.add(texto);
-
                     if(primera) {
                         primera = false;
                     }
                 } while(!fila.isLast());
             }
             db.close();
-
             ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, arrayPropietarios);
             lvLista.setAdapter(adaptador);
         }
