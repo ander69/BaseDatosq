@@ -63,7 +63,6 @@ public class CochesABM extends AppCompatActivity {
         SQLiteDatabase db = admin.getWritableDatabase();
         List<String> listaDni = new ArrayList<>();
         Cursor fila = db.rawQuery("SELECT dni FROM propietarios", null);
-
         if(fila.getCount() <= 0) {
             ArrayAdapter<String> adapter = new ArrayAdapter<>(this,android.R.layout.simple_spinner_dropdown_item, new String[]{""});
             spDni.setAdapter(adapter);
@@ -77,7 +76,6 @@ public class CochesABM extends AppCompatActivity {
             } else {
                 fila.moveToNext();
             }
-
             String dni = fila.getString(0);
             listaDni.add(dni);
         } while(!fila.isLast());
