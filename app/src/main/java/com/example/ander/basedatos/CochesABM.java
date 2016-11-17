@@ -18,7 +18,7 @@ import java.util.List;
 //prueba 213487
 
 public class CochesABM extends AppCompatActivity {
-    private Button btBuscar;
+    private Button btBuscar,btGuardar;
     private EditText etMatricula,etMarca,etPotencia;
     private Spinner spDni;
     private TextView tvTitulo;
@@ -29,6 +29,7 @@ public class CochesABM extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_coches_abm);
         btBuscar=(Button)findViewById(R.id.btBuscar);
+        btGuardar=(Button)findViewById(R.id.btGuardar);
         etMatricula=(EditText)findViewById(R.id.etMatricula);
         etMarca=(EditText)findViewById(R.id.etMarca);
         etPotencia=(EditText)findViewById(R.id.etPotencia);
@@ -47,12 +48,15 @@ public class CochesABM extends AppCompatActivity {
             etMarca.setEnabled(false);
             etPotencia.setEnabled(false);
             spDni.setEnabled(false);
+            btGuardar.setEnabled(false);
+
 
         }
         if(opcion.equals("modificar")){
             etMarca.setEnabled(false);
             etPotencia.setEnabled(false);
             spDni.setEnabled(false);
+            btGuardar.setEnabled(false);
         }
         cargarSpinner();
     }
@@ -163,6 +167,9 @@ public class CochesABM extends AppCompatActivity {
                 etPotencia.setEnabled(true);
                 etMarca.setEnabled(true);
                 spDni.setEnabled(true);
+                btGuardar.setEnabled(true);
+            }else if(opcion.equals("bajas")){
+                btGuardar.setEnabled(true);
             }
         }else{
             Toast.makeText(this,"no existe",Toast.LENGTH_SHORT).show();

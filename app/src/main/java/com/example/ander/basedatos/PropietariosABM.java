@@ -13,7 +13,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 public class PropietariosABM extends AppCompatActivity {
-    private Button btBuscar;
+    private Button btBuscar,btGuardar;
     private EditText etNombre,etDni,etEdad,etTelefono;
     private TextView tvTitulo;
     private String opcion;
@@ -24,6 +24,7 @@ public class PropietariosABM extends AppCompatActivity {
         setContentView(R.layout.activity_propietarios_abm);
         tvTitulo=(TextView)findViewById(R.id.tvTitulo);
         btBuscar=(Button)findViewById(R.id.btBuscar);
+        btGuardar=(Button)findViewById(R.id.btGuardar);
         etNombre=(EditText)findViewById(R.id.etNombre);
         etDni=(EditText)findViewById(R.id.etDni);
         etEdad=(EditText)findViewById(R.id.etEdad);
@@ -40,11 +41,13 @@ public class PropietariosABM extends AppCompatActivity {
             etNombre.setEnabled(false);
             etEdad.setEnabled(false);
             etTelefono.setEnabled(false);
+            btGuardar.setEnabled(false);
         }
         if(opcion.equals("modificar")){
             etNombre.setEnabled(false);
             etEdad.setEnabled(false);
             etTelefono.setEnabled(false);
+            btGuardar.setEnabled(false);
         }
 
     }
@@ -117,6 +120,9 @@ public class PropietariosABM extends AppCompatActivity {
                 etNombre.setEnabled(true);
                 etEdad.setEnabled(true);
                 etTelefono.setEnabled(true);
+                btGuardar.setEnabled(true);
+            }else if(opcion.equals("bajas")){
+                btGuardar.setEnabled(true);
             }
         }else{
             Toast.makeText(this,"no existe",Toast.LENGTH_SHORT).show();

@@ -114,7 +114,7 @@
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:text="Guardar"
-            android:id="@+id/button5"
+            android:id="@+id/btGuardar"
             android:layout_weight="1"
             android:onClick="guardar" />
 
